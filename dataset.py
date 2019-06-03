@@ -10,12 +10,12 @@ class MG_Dataset(Dataset):
         self.data_range = data_range
         self.samples = [id for id in range(data_range[0], data_range[1])]
 
-        # if is_shuffle and train:
-        #     random.shuffle(self.samples)
+        if is_shuffle and train:
+            random.shuffle(self.samples)
 
         self.D = input_dim
-        self.P = 2
-        self.F = 25
+        self.P = 4
+        self.F = 85
         self.nSamples = len(self.samples)
 
     def __len__(self):

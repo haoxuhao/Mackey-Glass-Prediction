@@ -44,15 +44,18 @@ def test():
 	t, x = Mackey_Glass(6000, 17)
 	print(np.max(x), np.min(x))
 	figure = plt.figure()
+	plt.xlabel("time", fontsize=13)
+	plt.ylabel("value", fontsize=13)
 	plt.title("MG-series")
 	plt.plot(t, x)
-	plt.show()
+	plt.savefig("data/data.png")
+	#plt.show()
 
 if __name__=="__main__":
-	test()
-	# data_dir = "./data"
-	# if not osp.exists(data_dir):
-	# 	os.makedirs(data_dir)
+	#test()
+	data_dir = "./data"
+	if not osp.exists(data_dir):
+		os.makedirs(data_dir)
 
-	# t, x = Mackey_Glass(6000, 17)
-	# np.save(osp.join(data_dir, "data.npy"), x)
+	t, x = Mackey_Glass(6000, 17)
+	np.save(osp.join(data_dir, "data.npy"), x)
